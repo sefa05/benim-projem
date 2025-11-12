@@ -1,11 +1,11 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import Header from '../../components/Header'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { cookies, headers } from 'next/headers'
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentSupabaseClient({ headers, cookies })
   const { data } = await supabase.auth.getSession()
   const user = data.session?.user
 

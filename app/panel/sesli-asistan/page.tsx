@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
-import { getBrowserSupabase } from '../../../../lib/supabaseClient'
-import { useVoiceAssistant } from '../../../../lib/useVoiceAssistant'
+import { getBrowserSupabase } from '../../../lib/supabaseClient'
+import { useVoiceAssistant } from '../../../lib/useVoiceAssistant'
 
 export default function SesliAsistanPage() {
   const supabase = getBrowserSupabase()

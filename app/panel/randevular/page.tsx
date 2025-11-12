@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { getBrowserSupabase } from '../../../../lib/supabaseClient'
-import AppointmentModal from '../../../../components/AppointmentModal'
-import ConfirmDialog from '../../../../components/ConfirmDialog'
+import { getBrowserSupabase } from '../../../lib/supabaseClient'
+import AppointmentModal from '../../../components/AppointmentModal'
+import ConfirmDialog from '../../../components/ConfirmDialog'
 
 type Appointment = {
   id: string
