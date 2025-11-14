@@ -1,9 +1,8 @@
 import React from 'react'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { getServerSupabase } from '../../../lib/supabaseClient'
 
 export default async function LoglarPage() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = getServerSupabase()
   const { data } = await supabase.from('loglar').select('*').order('tarih_saat', { ascending: false }).limit(200)
 
   return (

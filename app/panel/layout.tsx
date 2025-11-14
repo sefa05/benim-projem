@@ -1,17 +1,14 @@
 import React from 'react'
 import Sidebar from '../../components/Sidebar'
 import Header from '../../components/Header'
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { cookies, headers } from 'next/headers'
 
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
-  const supabase = createServerComponentSupabaseClient({ headers, cookies })
-  const { data } = await supabase.auth.getSession()
-  const user = data.session?.user
-
+  // Geçici: auth-helpers kaldırıldı, bu yüzden sunucu tarafı oturum kontrolünü
+  // burada atlıyoruz. Daha tam bir migration isterseniz, cookie'den token okuyup
+  // user bilgisi almak için yardımcı ekleyebilirim.
   return (
     <div className="min-h-screen flex">
-      <Sidebar userEmail={user?.email ?? null} />
+      <Sidebar userEmail={null} />
       <div className="flex-1 p-6">
         <Header title="Çamlıca Diş Kliniği – Sesli Asistan Paneli" />
         <main className="mt-6">

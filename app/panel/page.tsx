@@ -1,10 +1,9 @@
 import React from 'react'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { getServerSupabase } from '../../lib/supabaseClient'
 import Link from 'next/link'
 
 export default async function PanelPage() {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = getServerSupabase()
 
   const todayStart = new Date()
   todayStart.setHours(0,0,0,0)
